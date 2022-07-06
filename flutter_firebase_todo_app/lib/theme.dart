@@ -22,8 +22,8 @@ class AppTheme {
   static const TextStyle _lightHeadingText =
       TextStyle(color: _lightTextColorPrimary, fontFamily: "Rubik", fontSize: 20, fontWeight: FontWeight.bold);
 
-  static const TextStyle _lightBodyText = TextStyle(
-      color: _lightTextColorPrimary, fontFamily: "Rubik", fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, fontSize: 16);
+  static const TextStyle _lightBodyText =
+      TextStyle(color: _lightTextColorPrimary, fontFamily: "Rubik", fontWeight: FontWeight.w500, fontSize: 16);
 
   static const TextTheme _lightTextTheme = TextTheme(
     headline1: _lightHeadingText,
@@ -39,7 +39,19 @@ class AppTheme {
     bodyText1: _darkThemeBodyeTextStyle,
   );
 
+  static final InputDecorationTheme _inputDecorationTheme = InputDecorationTheme(
+    floatingLabelStyle: const TextStyle(color: Colors.white),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: const BorderSide(color: Colors.white),
+    ),
+  );
+
   static final ThemeData lightTheme = ThemeData(
+      inputDecorationTheme: _inputDecorationTheme,
       scaffoldBackgroundColor: _lightPrimaryColor,
       appBarTheme: const AppBarTheme(color: _appbarColorLight, iconTheme: IconThemeData(color: _iconColor)),
       bottomAppBarColor: _appbarColorLight,
@@ -51,6 +63,7 @@ class AppTheme {
       textTheme: _lightTextTheme);
 
   static final ThemeData darkTheme = ThemeData(
+      inputDecorationTheme: _inputDecorationTheme,
       scaffoldBackgroundColor: _darkPrimaryColor,
       appBarTheme: AppBarTheme(color: _appbarColorDark, iconTheme: const IconThemeData(color: _iconColor)),
       bottomAppBarColor: _appbarColorDark,

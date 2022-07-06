@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "753660236604",
+    "project_id": "udemy-flutter-todo-app",
+    "storage_bucket": "udemy-flutter-todo-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753660236604:android:50f324ee653cc876510439",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase_todo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753660236604-sfkmbjk8rpvcvggutv83qi8jjthlni3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm8DX2vOKdn77MVFmTztbgGTdqqXgE73g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753660236604-sfkmbjk8rpvcvggutv83qi8jjthlni3p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "753660236604-8o41hgfp82387s8g8snrmkd1hq0v3ogg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterFirebaseTodoApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
