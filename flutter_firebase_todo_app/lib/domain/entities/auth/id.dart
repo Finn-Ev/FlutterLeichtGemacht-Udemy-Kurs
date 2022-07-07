@@ -6,7 +6,7 @@ class UniqueID {
   const UniqueID._(this.value);
 
   factory UniqueID() {
-    return UniqueID._(Uuid().v4());
+    return UniqueID._(const Uuid().v4());
   }
 
   factory UniqueID.fromString(String uniqueID) {

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_firebase_todo_app/core/failures/auth_failures.dart';
-import 'package:flutter_firebase_todo_app/domain/entities/user.dart';
+import 'package:flutter_firebase_todo_app/domain/entities/auth/user.dart';
 
 abstract class AuthRepository {
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({

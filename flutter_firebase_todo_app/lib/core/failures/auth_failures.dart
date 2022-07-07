@@ -6,7 +6,7 @@ class EmailAlreadyInUseFailure extends AuthFailure {}
 
 class InvalidEmailAndPasswordCombinationFailure extends AuthFailure {}
 
-String mapFailureToMessage(AuthFailure failure) {
+String mapAuthFailureToMessage(AuthFailure failure) {
   switch (failure.runtimeType) {
     case ServerFailure:
       return 'Something went wrong';

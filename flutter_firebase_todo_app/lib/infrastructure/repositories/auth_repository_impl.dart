@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_firebase_todo_app/core/failures/auth_failures.dart';
-import 'package:flutter_firebase_todo_app/domain/entities/user.dart';
+import 'package:flutter_firebase_todo_app/domain/entities/auth/user.dart';
 import 'package:flutter_firebase_todo_app/domain/repositories/auth_repository.dart';
-import 'package:flutter_firebase_todo_app/infrastructure/models/firebase_user_mapper.dart';
+import 'package:flutter_firebase_todo_app/infrastructure/extensions/firebase_helpers.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final FirebaseAuth firebaseAuth;

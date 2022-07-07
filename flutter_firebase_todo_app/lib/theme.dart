@@ -58,8 +58,7 @@ class AppTheme {
       colorScheme: ColorScheme.light(
           primary: _lightPrimaryColor,
           onPrimary: _lightOnPrimaryColor,
-          secondary: _accentColorDark,
-          primaryVariant: _lightPrimaryVariantColor),
+          secondary: _accentColorDark),
       textTheme: _lightTextTheme);
 
   static final ThemeData darkTheme = ThemeData(
@@ -71,7 +70,6 @@ class AppTheme {
         primary: _darkPrimaryColor,
         secondary: _accentColorDark,
         onPrimary: _darkOnPrimaryColor,
-        primaryVariant: _darkPrimaryVariantColor,
       ),
       textTheme: _darkTextTheme);
 }

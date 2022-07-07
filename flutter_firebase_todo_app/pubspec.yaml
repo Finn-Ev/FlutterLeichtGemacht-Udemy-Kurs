@@ -36,15 +36,15 @@ dependencies:
   firebase_auth: ^3.3.6
   firebase_core: ^1.12.0
   dartz: ^0.10.1
-  auto_route: ^3.2.2
+  auto_route: ^4.2.1
   uuid: ^3.0.5
   cloud_firestore: ^3.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  auto_route_generator: ^3.2.1
-  build_runner: ^2.1.7
+  auto_route_generator: ^4.2.0
+  build_runner: ^2.1.11
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

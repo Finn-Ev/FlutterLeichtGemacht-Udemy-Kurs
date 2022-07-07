@@ -19,7 +19,7 @@ class SignUpButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: themeData.textTheme.button!.copyWith(
+          style: themeData.textTheme.button?.copyWith(
             color: themeData.colorScheme.onSecondary,
             letterSpacing: 1,
           ),

@@ -26,7 +26,7 @@ class SignUpForm extends StatelessWidget {
       if (!EMAIL_REG_EX.hasMatch(value)) {
         return 'Please enter a valid email';
       }
-      email = value;
+      email = value.trim();
       return null;
     }
 
@@ -54,7 +54,7 @@ class SignUpForm extends StatelessWidget {
                       SnackBar(
                         backgroundColor: Colors.redAccent,
                         content: Text(
-                          mapFailureToMessage(failure),
+                          mapAuthFailureToMessage(failure),
                           style: themeData.textTheme.bodyText1,
                         ),
                       ),
@@ -75,7 +75,7 @@ class SignUpForm extends StatelessWidget {
               ),
               Text(
                 "Welcome",
-                style: themeData.textTheme.headline1!.copyWith(
+                style: themeData.textTheme.headline1?.copyWith(
                   fontSize: 50,
                   fontWeight: FontWeight.w500,
                 ),
@@ -83,7 +83,7 @@ class SignUpForm extends StatelessWidget {
               const SizedBox(height: 16.0),
               Text(
                 "Please register or sign-in to continue",
-                style: themeData.textTheme.headline1!.copyWith(
+                style: themeData.textTheme.headline1?.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.w300,
                 ),
@@ -110,7 +110,8 @@ class SignUpForm extends StatelessWidget {
               SignUpButton(
                 text: "Register",
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {
+                  final valid = _formKey.currentState?.validate();
+                  if (valid != null && valid) {
                     BlocProvider.of<SignUpFormBloc>(context).add(
                       RegisterWithEmailAndPasswordPressed(email: email, password: password),
                     );
@@ -125,7 +126,8 @@ class SignUpForm extends StatelessWidget {
               SignUpButton(
                 text: "Sign In",
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {
+                  final valid = _formKey.currentState?.validate();
+                  if (valid != null && valid) {
                     BlocProvider.of<SignUpFormBloc>(context).add(
                       SignInWithEmailAndPasswordPressed(email: email, password: password),
                     );
