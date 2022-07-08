@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_todo_app/application/auth/auth_bloc/auth_bloc.dart';
 import 'package:flutter_firebase_todo_app/application/todos/oberserver/todos_observer_bloc.dart';
 import 'package:flutter_firebase_todo_app/injection.dart';
+import 'package:flutter_firebase_todo_app/presentation/home/widgets/todo_list.dart';
 import 'package:flutter_firebase_todo_app/presentation/routes/router.gr.dart';
 
 class HomePage extends StatelessWidget {
@@ -36,9 +37,7 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
-          body: const Center(
-            child: Text('Home'),
-          ),
+          body: TodoList(),
         ),
       ),
     );

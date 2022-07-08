@@ -110,8 +110,7 @@ class SignUpForm extends StatelessWidget {
               SignUpButton(
                 text: "Register",
                 onPressed: () {
-                  final valid = _formKey.currentState?.validate();
-                  if (valid != null && valid) {
+                  if (_formKey.currentState!.validate()) {
                     BlocProvider.of<SignUpFormBloc>(context).add(
                       RegisterWithEmailAndPasswordPressed(email: email, password: password),
                     );
@@ -126,8 +125,7 @@ class SignUpForm extends StatelessWidget {
               SignUpButton(
                 text: "Sign In",
                 onPressed: () {
-                  final valid = _formKey.currentState?.validate();
-                  if (valid != null && valid) {
+                  if (_formKey.currentState!.validate()) {
                     BlocProvider.of<SignUpFormBloc>(context).add(
                       SignInWithEmailAndPasswordPressed(email: email, password: password),
                     );
