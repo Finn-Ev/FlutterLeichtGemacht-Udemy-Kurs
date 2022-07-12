@@ -39,6 +39,7 @@ dependencies:
   auto_route: ^4.2.1
   uuid: ^3.0.5
   cloud_firestore: ^3.2.1
+  flutter_dialogs: 2.1.1
 
 dev_dependencies:
   flutter_test:

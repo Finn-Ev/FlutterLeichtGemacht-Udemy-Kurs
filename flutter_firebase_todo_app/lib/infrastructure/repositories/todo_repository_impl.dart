@@ -12,21 +12,58 @@ class TodoRepositoryImpl implements TodoRepository {
   TodoRepositoryImpl({required this.firestore});
 
   @override
-  Future<Either<TodoFailure, Unit>> create(Todo todo) {
-    // TODO: implement create
-    throw UnimplementedError();
+  Future<Either<TodoFailure, Unit>> create(Todo todo) async {
+    try {
+      final userDoc = await firestore.userDocument();
+
+      // go 'reverse' from domain to infrastructure
+      final todoModel = TodoModel.fromEntity(todo);
+
+      await userDoc.collection('todos').doc(todoModel.id).set(todoModel.toMap());
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.code == 'permission-denied' || e.code == 'PERMISSION_DENIED') {
+        return left(InsufficientPermissions());
+      }
+      return left(UnexpectedFailure());
+    }
   }
 
   @override
-  Future<Either<TodoFailure, Unit>> delete(UniqueID id) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<Either<TodoFailure, Unit>> update(Todo todo) async {
+    try {
+      final userDoc = await firestore.userDocument();
+
+      // go 'reverse' from domain to infrastructure
+      final todoModel = TodoModel.fromEntity(todo);
+
+      await userDoc.collection('todos').doc(todoModel.id).update(todoModel.copyWith(createdAt: todoModel.createdAt).toMap());
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.code == 'permission-denied' || e.code == 'PERMISSION_DENIED') {
+        return left(InsufficientPermissions());
+      }
+      return left(UnexpectedFailure());
+    }
   }
 
   @override
-  Future<Either<TodoFailure, Unit>> update(Todo todo) {
-    // TODO: implement update
-    throw UnimplementedError();
+  Future<Either<TodoFailure, Unit>> delete(UniqueID id) async {
+    try {
+      final userDoc = await firestore.userDocument();
+      print('userid: ${id.toString()}');
+
+      await userDoc.collection('todos').doc(id.toString()).delete();
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.code == 'permission-denied' || e.code == 'PERMISSION_DENIED') {
+        return left(InsufficientPermissions());
+      }
+      return left(UnexpectedFailure());
+    }
   }
 
   @override
@@ -34,7 +71,9 @@ class TodoRepositoryImpl implements TodoRepository {
     final userDoc = await firestore.userDocument();
 
     // right side listen on todos
-    yield* userDoc.todoCollection
+    // yield* userDoc.todoCollection
+    yield* userDoc
+        .collection("todos")
         .snapshots()
         .map((snapshot) =>
             right<TodoFailure, List<Todo>>(snapshot.docs.map((doc) => TodoModel.fromFirestore(doc).toEntity()).toList()))

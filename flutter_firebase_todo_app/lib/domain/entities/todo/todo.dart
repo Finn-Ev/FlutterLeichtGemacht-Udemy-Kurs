@@ -12,7 +12,7 @@ class Todo {
 
   factory Todo.empty() {
     return Todo(
-        id: UniqueID(), title: "", description: "", isDone: false, color: TodoColor(color: TodoColor.predefinedColors[5]));
+        id: UniqueID(), title: "", description: "", isDone: false, color: TodoColor(color: TodoColor.predefinedColors[0]));
   }
 
   Todo copyWith({
